@@ -1,0 +1,38 @@
+nav {
+    margin: 0 auto;
+}
+ul {
+    
+    //text-align: center;
+    list-style-type: none;
+    li {
+        padding: 0 10px 0 10px;
+    }
+}
+
+ul.main-menu {
+    & > li {
+        float: left;
+        &:hover {
+            & > ul.sub-menu {
+                display: block;
+            }
+        }
+        & > a {
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+}
+
+ul.sub-menu {
+    display: none;
+    background-color: green;
+    position: absolute;
+    li {
+        float: left;
+        a {
+            color: white;
+        }
+    }
+}
