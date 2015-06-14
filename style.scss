@@ -1,37 +1,35 @@
-nav {
-    margin: 0 auto;
-}
-ul {
-    
-    //text-align: center;
-    list-style-type: none;
-    li {
-        padding: 0 10px 0 10px;
-    }
-}
-
 ul.main-menu {
+    list-style-type: none;
+    text-align: center;
     & > li {
-        float: left;
+        display: inline;
+        & > a {
+            display: inline-block;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
         &:hover {
             & > ul.sub-menu {
                 display: block;
             }
-        }
-        & > a {
-            text-transform: uppercase;
-            text-decoration: none;
         }
     }
 }
 
 ul.sub-menu {
     display: none;
-    background-color: green;
+    list-style-type: none;
+    text-align: center;
     position: absolute;
-    li {
-        float: left;
-        a {
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    & > li {
+        display: inline;
+        background-color: green;
+        & > a {
+            display: inline-block;
             color: white;
         }
     }
