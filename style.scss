@@ -1,7 +1,6 @@
-
-
-ul.main-menu {
-   list-style-type: none;
+// Style for main menu
+  ul[role="menubar"] {
+    list-style-type: none;
     text-align: center;
     & > li {
 	  display: inline;
@@ -17,12 +16,11 @@ ul.main-menu {
 	  &:hover > a {
 		color: #007b13;
 	  }
-	  &:hover > ul.sub-menu {
+	  &:hover > ul.child-menu {
 		display: table;
 	  }
 	  // Draw arrow
-	   
-      &:hover > a:not(:only-child):after {
+	  &.has-children:hover:after {
 		top: 10px;
 		left: 50%;
 		border: solid transparent;
@@ -40,41 +38,34 @@ ul.main-menu {
 	}
   }
 
-ul.sub-menu {
+// Style for child menu
+  ul.child-menu {
     display: none;
     list-style-type: none;
     position: absolute;
 	top: 30px;
 	left: 0%;
 	padding: 25px;
-
-	// Draw arrow
-	&:before > table {
-	  bottom: 100%;
-	  left: 50%;
-      border: solid transparent;
-	  content: " ";
-	  height: 0;
-	  width: 0;
-	  position: absolute;
-	  pointer-events: none;
-	  border-color: rgba(136, 183, 213, 0);
-	  border-bottom-color: #2ca600;
-	  border-width: 10px;
-	  margin-left: -10px;
-	}
-
+	z-index: 1;
+    width: 700px;
 	background-color: #2ca600;
     & > li {
 	  display: inline;
 	  text-align: center;
+      position: relative;
 	  padding: 10px;
 	  & > a {
 		color: #FFFFFF;
 		display: inline-block;
-		text-decoration: none;
-		&:hover {
-		  //border-bottom: 3px solid #FFFFFF;
+		
+        text-decoration: none;
+		&:hover:after {
+		  content: "";
+		  width: 33%;
+		  position: absolute;
+		  top: 30px;
+		  left: 33%;
+		  border-bottom: 2px solid #FFFFFF;
 		}
 	  }
     }
