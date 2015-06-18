@@ -35,6 +35,24 @@
 		margin-left: -10px;
 		z-index: 1;
 	  }
+      
+      & > ul.child-menu {
+            transform: translateX(50%);
+      }
+      &:nth-child(1) {
+        & > ul.child-menu {
+            transform: none;
+            left: 0%;
+            right: auto;
+        }
+      } 
+      &:nth-last-child(1) {
+        & > ul.child-menu {
+            transform: none;
+            left: auto;
+            right: 0%;
+        }
+      }      
 	}
   }
 
@@ -44,7 +62,7 @@
     list-style-type: none;
     position: absolute;
 	top: 30px;
-	left: 0%;
+	//left: 0%;
 	padding: 25px;
 	z-index: 1;
     width: 700px;
