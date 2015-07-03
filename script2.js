@@ -3,13 +3,12 @@
 // submenu-leftest
 // submenu-onright
 // submenu-rightest
-
+/*
 var n = $('ul[role="menubar"]').children().length;
 console.log(n);
 
 var w = 0;
 
-//var e = $('.has-children:nth-child(1) > ul > li:nth-child(1)').offset();
 var e = $('ul[role="menubar"] > li:nth-child(1)').offset();
 console.log("e:"+e.left);
 
@@ -27,3 +26,8 @@ for (i = 1; i <= n; i++) {
     console.log(y);
 }
 console.log(w);
+*/
+
+$('li.has-children').click(function () {
+    $(this).children('ul.child-menu').toggleClass('child-menu-visible');
+});
