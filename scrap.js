@@ -50,3 +50,7 @@ console.log(w);
 
 var w = $('.has-children:nth-child(1) > ul').children().length;
 console.log(w);
+
+$('li.has-children').click(function () {
+    $(this).children('ul.child-menu').toggleClass('child-menu-visible');
+});
