@@ -1,39 +1,27 @@
-
+$( window ).load(setSubmenuOffset);
+$( window ).load(setSubmenuVerticalPosition);
+$( window ).resize(setSubmenuOffset);
 
 /**
- * getSubMenuOffset
+ * setSubMenuOffset
  * Horizontally center submenu when screen size changes
  */
-function getSubmenuOffset() {
-    var mainMenuWidth = $('ul[role="menubar"]').width();
+function setSubmenuOffset() {
+    var mainMenuWidth = $('nav#navigation').width();
+    //console.log("mainMenuWidth: " + mainMenuWidth);
     var subMenuWidth = parseInt($('ul.child-menu').css("min-width"));
+    //console.log("mainMenuWidth: " + mainMenuWidth);
     var subMenuOffset = (mainMenuWidth/2)-(subMenuWidth/2);
-    $('ul.child-menu').css("left",subMenuOffset);
+    //console.log("subMenuOffset: " + subMenuOffset);
+    $('ul.child-menu').css("left", subMenuOffset);
 }
 
-$('li.has-children').click(function () {
-    var i = $(this).index();
-    localStorage.setItem('submenu', i+1);
-    //console.log(i);
-    //$( this ).css("aria-selected","true");
-});
-
-function getOpenSubmenu() {
-    var i = localStorage.getItem('submenu');
-    if(i) {  
-        //$('ul[role="menubar"] li:nth-child('+ i +') ul.child-menu').toggleClass("visible");
-        $('ul[role="menubar"] li:nth-child('+ i +') ul.child-menu').css("display","table");
-        localStorage.removeItem("submenu");
-    }
+/**
+ * setSubmenuVerticalPosition
+ * Vertically position submenu
+ */
+function setSubmenuVerticalPosition() {
+    var mainMenuHeight = $('nav#navigation').height();
+    //console.log("mainMenuHeight: " + mainMenuHeight);
+    $('ul.child-menu').css("top", mainMenuHeight);
 }
-
-// Liferay:
-/*
-function getOpenSubmenu() {
-    $('li.has-children[aria-selected="true"] ul.child-menu').css("display","table");
-}
-*/
-
-$( window ).load(getOpenSubmenu);
-$( window ).load(getSubmenuOffset);
-$( window ).resize(getSubmenuOffset);
