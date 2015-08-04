@@ -1,0 +1,123 @@
+//global variables to be used in the theme.
+//import this to the file you would like to use this in with @import "variables";
+
+
+// Colors
+$fc-color-green: #2ca600;
+$fc-color-light-green: #e0ffc3;
+$fc-color-dark-green: #007811;
+$fc-color-grey: #ebeff1;
+$fc-color-dark-grey: #50606e;
+$fc-color-box-border-grey: #e0e4e7;
+$fc-color-light-grey: #f8f9fe;
+$fc-color-black: #333333;
+
+// Media queries
+$fc-media-query-mobile: "only screen and (min-width: 630px) and (max-width: 767px)";
+$fc-media-query-tablet: "only screen (min-width: 768px) and (max-width: 1024px)";
+$fc-media-query-normal-desktop: "only screen and (min-width: 1025px) and (max-width: 1279px)";
+$fc-media-query-large-desktop: "only screen and (min-width: 1280px)";
+$fc-media-query-not-mobile: "only screen and (min-width: 768px)";
+
+// Fonts
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%fc-font-normal-text {
+  font-family: 'Calibre Regular', sans-serif;
+  font-size: 20px;
+  line-height: 130%;
+  @include font-smoothing();
+}
+
+%fc-font-bold-text {
+  font-family: 'Calibre Semibold', sans-serif;
+  @include font-smoothing();
+}
+
+%fc-font-h1 {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 65px;
+  line-height: 100%;
+  @include font-smoothing();
+}
+%fc-font-h2 {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 50px;
+  line-height: 100%;
+  @include font-smoothing();
+}
+
+%fc-font-h3 {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 44px;
+  line-height: 100%;
+  @include font-smoothing();
+}
+
+%fc-font-middle-size-header {
+  font-family: 'Calibre Regular', sans-serif;
+  font-size: 28px;
+  color: $fc-color-dark-grey;
+  @include font-smoothing();
+}
+
+%fc-font-small-uppercase-header {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: $fc-color-dark-grey;
+  @include font-smoothing();
+}
+
+%fc-font-link-text {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 20px;
+  color: $fc-color-green;
+  @include font-smoothing();
+}
+
+%fc-font-link-company-page {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  @include font-smoothing();
+}
+
+%fc-font-category-box {
+  font-family: "Calibre Semibold", sans-serif;
+  font-size: 14px;
+  color: $fc-color-dark-grey;
+  @include font-smoothing();
+  text-transform: uppercase;
+}
+
+%fc-font-banner-text {
+  font-family: 'Calibre Regular', sans-serif;
+  font-size: 24px;
+  line-height: 120%;
+  @include font-smoothing();
+}
+
+%fc-font-navigation-main {
+  font-family: 'Calibre Regular', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: $fc-color-green;
+  @include font-smoothing();
+}
+
+%fc-font-navigation-sub {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 18px;
+  color: $fc-color-light-green;
+  @include font-smoothing();
+}
+
+%fc-font-mega-navigation-top {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 24px;
+  @include font-smoothing();
+}
