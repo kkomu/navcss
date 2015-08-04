@@ -3,7 +3,7 @@
 
     $('ul[role="menubar"] > li.has-children').hover(function() {
         setSubmenuPosition(this);
-        $(this).children('ul.child-menu').css("display", "block");
+        $(this).children('ul.child-menu').css("display", "inline-block");
     }, function() {
         $(this).children('ul.child-menu').css("display", "none");
     });
