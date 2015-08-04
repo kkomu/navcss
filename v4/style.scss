@@ -1,0 +1,141 @@
+@font-face {
+    font-family: "Calibre Regular";
+    src: url("../Calibre-Regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Calibre Semibold";
+    src: url("../Calibre-Semibold.otf") format("opentype");
+}
+
+$fc-color-green: #2ca600;
+$fc-color-light-green: #e0ffc3;
+$fc-color-dark-green: #007811;
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%fc-font-navigation-main {
+  font-family: 'Calibre Regular', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: $fc-color-green;
+  @include font-smoothing();
+    line-height: 130%;
+}
+
+%fc-font-navigation-sub {
+  font-family: 'Calibre Semibold', sans-serif;
+  font-size: 18px;
+  color: $fc-color-light-green;
+  @include font-smoothing();
+    line-height: 130%;
+}
+
+// Style for main menu
+  ul[role="menubar"] {
+	padding-left: 0px;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-align: center;
+	margin: 0 0 0 0;
+	position: relative;
+    white-space: nowrap;
+	& > li {
+		position: relative;
+        display: inline-block;
+		text-align: center;
+		padding: 0 15px 10px 15px;
+		& > a {
+			@extend %fc-font-navigation-main;
+			display: inline-block;
+			text-decoration: none;
+		}
+		&:hover > a {
+			color: $fc-color-dark-green;
+		}
+
+		// Draw arrow
+        &.has-children:hover > .navi-arrow {
+            left: 50%;
+            top: 17px;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(44, 166, 0, 0);
+			border-bottom-color: $fc-color-green;
+			border-width: 10px;
+			margin-left: -10px;
+			z-index: 1001;
+		}
+	}
+  }
+/*
+  ul[role="menubar"] >li:hover > ul.child-menu {
+    //ul[role="menubar"] >li.selected > ul.child-menu {
+	display: table;
+  }
+*/
+// Style for child menu
+  ul.child-menu {
+	display: none;
+	padding-left: 0px;
+	box-sizing: border-box;
+	-webkit-border-radius: 0 0 3px 3px;
+	-moz-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+	height: 80px;
+	margin: 0 0 0 0;
+	list-style-type: none;
+	position: absolute;
+	top: 36px;
+	min-width: 950px;
+	z-index: 1001;
+	background-color: $fc-color-green;
+	& > li {
+		top: 30px;
+		display: inline;
+		position: relative;
+		text-align: center;
+		padding: 15px;
+		& > a {
+			@extend %fc-font-navigation-sub;
+			display: inline-block;
+			white-space: nowrap;
+			text-decoration: none;
+			&:hover {
+				color: #ffffff;
+			}
+			&:hover:after {
+				margin: 0 auto;
+				left: 0;
+				right: 0;
+				content: "";
+				width: 20px;
+				position: absolute;
+				top: 35px;
+				border-bottom: 2px solid #ffffff;
+			}
+		}
+	}
+  }
+
+ul.mega-menu {
+    display: none;
+    widht: 100%;
+    height: 295px;
+    background-color: #2ca600;
+    z-index: 1001;
+    position: absolute;
+}
+
+#kk-content {
+    width: 100%;
+    height: 410px;
+    background-color: lightgray;
+}
