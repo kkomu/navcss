@@ -12,6 +12,8 @@ $fc-color-green: #2ca600;
 $fc-color-light-green: #e0ffc3;
 $fc-color-dark-green: #007811;
 
+$fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024px)";
+
 @mixin font-smoothing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,7 +35,6 @@ $fc-color-dark-green: #007811;
   @include font-smoothing();
     line-height: 130%;
 }
-
 // Style for main menu
   ul[role="menubar"] {
 	padding-left: 0px;
@@ -44,22 +45,29 @@ $fc-color-dark-green: #007811;
 	position: relative;
     white-space: nowrap;
 	& > li {
-		position: relative;
+        //position: relative;
         display: inline-block;
 		text-align: center;
 		padding: 0 15px 10px 15px;
+        @media #{$fc-media-query-tablet} {
+            padding: 0 5px 10px 5px;
+        }
 		& > a {
-			@extend %fc-font-navigation-main;
+			width: 100%;
+            @extend %fc-font-navigation-main;
 			display: inline-block;
 			text-decoration: none;
+            white-space: normal;
 		}
 		&:hover > a {
 			color: $fc-color-dark-green;
 		}
 
 		// Draw arrow
-        &.has-children:hover > .navi-arrow {
-            left: 50%;
+        //&.has-children:hover > .navi-arrow {
+        .navi-arrow {
+            display: none;
+            //left: 50%;
             top: 17px;
 			border: solid transparent;
 			content: " ";
@@ -81,11 +89,13 @@ $fc-color-dark-green: #007811;
 	display: table;
   }
 */
+
 // Style for child menu
   ul.child-menu {
 	white-space: normal;
     display: none;
 	padding-left: 0px;
+    padding-bottom: 30px;
 	box-sizing: border-box;
 	-webkit-border-radius: 0 0 3px 3px;
 	-moz-border-radius: 0 0 3px 3px;
@@ -96,6 +106,10 @@ $fc-color-dark-green: #007811;
 	position: absolute;
 	top: 36px;
 	width: 950px;
+    overflow: auto;
+    @media #{$fc-media-query-tablet} {
+        width: 95%;
+    }
 	z-index: 1001;
 	background-color: $fc-color-green;
 	& > li {
@@ -109,6 +123,9 @@ $fc-color-dark-green: #007811;
 			display: inline-block;
 			white-space: nowrap;
 			text-decoration: none;
+            @media #{$fc-media-query-tablet} {
+                padding-bottom: 20px;
+            }
 			&:hover {
 				color: #ffffff;
 			}
