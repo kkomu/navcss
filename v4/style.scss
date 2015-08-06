@@ -49,9 +49,10 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
         display: inline-block;
 		text-align: center;
 		padding: 0 15px 10px 15px;
-        @media #{$fc-media-query-tablet} {
-            padding: 0 5px 10px 5px;
-        }
+        //@media #{$fc-media-query-tablet} {
+        //    padding: 0 0 10px 0;
+        //}
+     
 		& > a {
 			width: 100%;
             @extend %fc-font-navigation-main;
