@@ -33,7 +33,7 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
   font-size: 18px;
   color: $fc-color-light-green;
   @include font-smoothing();
-    line-height: 130%;
+  line-height: 130%;
 }
 // Style for main menu
   ul[role="menubar"] {
@@ -105,11 +105,12 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
 	list-style-type: none;
 	position: absolute;
 	top: 36px;
-	width: 950px;
+	max-width: 95%;
+    width: 950px;
     overflow: auto;
-    @media #{$fc-media-query-tablet} {
-        width: 95%;
-    }
+    //@media #{$fc-media-query-tablet} {
+    //    width: 95%;
+    //}
 	z-index: 1001;
 	background-color: $fc-color-green;
 	& > li {
@@ -123,9 +124,7 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
 			display: inline-block;
 			white-space: nowrap;
 			text-decoration: none;
-            @media #{$fc-media-query-tablet} {
-                padding-bottom: 20px;
-            }
+            padding-bottom: 20px;
 			&:hover {
 				color: #ffffff;
 			}
