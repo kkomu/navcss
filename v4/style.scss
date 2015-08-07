@@ -45,31 +45,24 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
 	position: relative;
     white-space: nowrap;
 	& > li {
-        //position: relative;
         display: inline-block;
 		text-align: center;
-		padding: 0 15px 10px 15px;
-        //@media #{$fc-media-query-tablet} {
-        //    padding: 0 0 10px 0;
-        //}
-     
 		& > a {
-			width: 100%;
+			text-align: center;
             @extend %fc-font-navigation-main;
 			display: inline-block;
 			text-decoration: none;
             white-space: normal;
+            padding: 0 15px 10px 15px;
 		}
 		&:hover > a {
 			color: $fc-color-dark-green;
 		}
 
 		// Draw arrow
-        //&.has-children:hover > .navi-arrow {
         .navi-arrow {
             display: none;
-            //left: 50%;
-            top: 17px;
+            bottom: 0;
 			border: solid transparent;
 			content: " ";
 			height: 0;
@@ -102,16 +95,14 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
 	-moz-border-radius: 0 0 3px 3px;
 	border-radius: 0 0 3px 3px;
 	min-height: 80px;
-	margin: 0 0 0 0;
+	margin: 0 auto;
+    left: 0;
+    right: 0;
 	list-style-type: none;
 	position: absolute;
-	top: 36px;
 	max-width: 95%;
     width: 950px;
     overflow: auto;
-    //@media #{$fc-media-query-tablet} {
-    //    width: 95%;
-    //}
 	z-index: 1001;
 	background-color: $fc-color-green;
 	& > li {

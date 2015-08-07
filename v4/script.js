@@ -13,7 +13,7 @@
         $(menuElement).children('.navi-arrow').css("display", "none");   
         // Show submenu of hovered menu item
         setSubmenuPosition(this);
-        $(this).children('.navi-arrow').css("display", "initial");
+        $(this).children('.navi-arrow').css("display", "inline");
         $(this).children('ul.child-menu').css("display", "inline-block");
     }, function() {
         // Hide submenu of hovered menu item
@@ -22,7 +22,7 @@
         // Show submenu of selected menu item
         var menuElement = $('ul[role="menubar"] > li.selected.has-children');
         if( menuElement.is(':not(:first-child)')) {
-            $(menuElement).children('.navi-arrow').css("display", "initial");
+            $(menuElement).children('.navi-arrow').css("display", "inline");
             $(menuElement).children('ul.child-menu').css("display", "inline-block");
         }
         // Check if first page is really selected
@@ -31,7 +31,7 @@
                 var pageName = localStorage.getItem("mainPageClicked");
                 if(pageName !== null) {
                     setSubmenuPosition(menuElement);
-                    $(menuElement).children('.navi-arrow').css("display", "initial");
+                    $(menuElement).children('.navi-arrow').css("display", "inline");
                     $(menuElement).children('ul.child-menu').css("display", "inline-block");
                 }
             }
@@ -70,13 +70,11 @@
                 var widd = Math.round(95 / count);
                 console.log(widd);
                 $(this).css("width",widd+"%");
-                $(this).css("padding","0 0 10px 0");
             });
         }
         else {
              $('ul[role="menubar"] > li').each(function() {
                 $(this).css("width","initial");
-                $(this).css("padding","0 15px 10px 15px");
              });
         }
     }
@@ -90,7 +88,7 @@
         if( selectedElement.is(':not(:first-child)')) {
             setSubmenuPosition(selectedElement);
             $(selectedElement).children('ul.child-menu').css("display", "inline-block");
-            $(selectedElement).children('.navi-arrow').css("display", "initial");
+            $(selectedElement).children('.navi-arrow').css("display", "inline");
         }
         // Show main page child-menu ONLY when it's selected from navigation 
         else {
@@ -100,7 +98,7 @@
                     var menuElement = $('ul[role="menubar"] > li.has-children.selected');
                     setSubmenuPosition(menuElement);
                     $(menuElement).children('ul.child-menu').css("display", "inline-block");
-                    $(menuElement).children('.navi-arrow').css("display", "initial");
+                    $(menuElement).children('.navi-arrow').css("display", "inline");
                 }
                 else {
                     $('ul.child-menu').css("display", "none");
@@ -112,22 +110,11 @@
     
     // Position submenu and navi-arrow correctly
     function setSubmenuPosition(that) {
-        // Set submenu top position
-        var mainMenuHeight = $('nav#navigation').height();
-        $(that).children('ul.child-menu').css("top", mainMenuHeight);
-        
-        // Center submenu horizontally
-        var mainMenuWidth = $('nav#navigation').width();
-        var subMenuWidth = parseInt($('ul.child-menu').css("width")); 
-        var subMenuOffset = (mainMenuWidth/2)-(subMenuWidth/2);
-        $(that).children('ul.child-menu').css("left", subMenuOffset);
-        
         // Center navi-arrow horizontally
         var menuItemPosition = $(that).position().left;
         var menuItemWidth = $(that).outerWidth();
         var naviArrowOffset = Math.round(menuItemPosition + menuItemWidth/2);
         $(that).children('.navi-arrow').css("left",naviArrowOffset);
-        $(that).children('.navi-arrow').css("top", mainMenuHeight-20);
     }
 
 })();
