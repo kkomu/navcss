@@ -1,3 +1,5 @@
+// http://stackoverflow.com/questions/49536/how-do-i-really-justify-a-horizontal-menu-in-htmlcss
+
 @font-face {
     font-family: "Calibre Regular";
     src: url("../Calibre-Regular.otf") format("opentype");
@@ -28,7 +30,6 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
     line-height: 130%;
 }
 
-
 %fc-font-navigation-sub {
   font-family: 'Calibre Semibold', sans-serif;
   font-size: 18px;
@@ -36,7 +37,8 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
   @include font-smoothing();
   line-height: 130%;
 }
-// Style for main menu
+
+ // Style for main menu
   ul[role="menubar"] {
 	padding-left: 0px;
 	box-sizing: border-box;
@@ -44,9 +46,9 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
 	text-align: center;
 	margin: 0 0 0 0;
 	position: relative;
-    white-space: nowrap;
+	white-space: nowrap;
 	& > li {
-        display: inline-block;
+		display: inline-block;
 		text-align: center;
 		& > a {
 			text-align: center;
@@ -54,16 +56,16 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
 			display: inline-block;
 			text-decoration: none;
             white-space: normal;
-            padding: 0 15px 10px 15px;
+			padding: 0 15px 10px 15px;
 		}
-		&:hover > a {
-			color: $fc-color-dark-green;
+		&:hover > a, &.selected > a  {
+            color: $fc-color-dark-green;
 		}
 
 		// Draw arrow
         .navi-arrow {
             display: none;
-            bottom: 0;
+			bottom: 0;
 			border: solid transparent;
 			content: " ";
 			height: 0;
@@ -78,73 +80,66 @@ $fc-media-query-tablet: "only screen and (min-width: 768px) and (max-width: 1024
 		}
 	}
   }
-/*
-  ul[role="menubar"] >li:hover > ul.child-menu {
-    //ul[role="menubar"] >li.selected > ul.child-menu {
-	display: table;
-  }
-*/
 
 // Style for child menu
   ul.child-menu {
+	display: none;
 	white-space: normal;
-    table-layout: fixed;
-    display: none;
 	padding-left: 0px;
     padding-bottom: 30px;
 	box-sizing: border-box;
 	-webkit-border-radius: 0 0 3px 3px;
 	-moz-border-radius: 0 0 3px 3px;
 	border-radius: 0 0 3px 3px;
-	min-height: 80px;
+	height: 80px;
 	margin: 0 auto;
     left: 0;
     right: 0;
 	list-style-type: none;
 	position: absolute;
-	max-width: 95%;
-    width: 950px;
-    overflow: auto;
+	max-width: 98%;
+	width: 950px;
 	z-index: 1001;
 	background-color: $fc-color-green;
-	& > li {
+    
+    text-align:justify;  
+    
+	&:after {
+        content:"";
+        margin-left:100%;
+    }  
+    & > li {
 		top: 30px;
-		//display: inline;
-        display: table-cell;
+		display: inline;
 		position: relative;
-		text-align: center;
-		//padding: 15px;
-		& > a {
+		//float: left;
+		padding: 15px;
+        & > a {
 			@extend %fc-font-navigation-sub;
 			display: inline-block;
 			white-space: nowrap;
 			text-decoration: none;
-            padding-bottom: 20px;
+			padding-bottom: 20px;
 			&:hover {
 				color: #ffffff;
 			}
-			&:hover:after {
-				margin: 0 auto;
-				left: 0;
-				right: 0;
-				content: "";
-				width: 20px;
-				position: absolute;
-				top: 25px;
-				border-bottom: 2px solid #ffffff;
-			}
 		}
+        &.selected > a {
+          color: #ffffff;
+
+          &:after {
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            content: "";
+            width: 20px;
+            position: absolute;
+            top: 35px;
+            border-bottom: 2px solid #ffffff;
+          }
+        }
 	}
   }
-
-ul.mega-menu {
-    display: none;
-    widht: 100%;
-    height: 295px;
-    background-color: #2ca600;
-    z-index: 1001;
-    position: absolute;
-}
 
 #kk-content {
     width: 100%;
